@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table
+@Builder
 public class Board implements Serializable {
 
     @Id
@@ -42,14 +43,4 @@ public class Board implements Serializable {
     @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @Builder
-    public Board(String title, String subtitle, String content, BoardType boardType, LocalDateTime createdDate, LocalDateTime updatedDate, User user) {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.content = content;
-        this.boardType = boardType;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
-        this.user = user;
-    }
 }

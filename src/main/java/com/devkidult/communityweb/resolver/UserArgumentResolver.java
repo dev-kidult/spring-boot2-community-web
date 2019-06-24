@@ -4,6 +4,7 @@ import com.devkidult.communityweb.annotation.SocialUser;
 import com.devkidult.communityweb.domain.User;
 import com.devkidult.communityweb.domain.enums.SocialType;
 import com.devkidult.communityweb.repo.UserRepo;
+import lombok.AllArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -26,13 +27,10 @@ import java.util.Map;
 import static com.devkidult.communityweb.domain.enums.SocialType.*;
 
 @Component
+@AllArgsConstructor
 public class UserArgumentResolver implements HandlerMethodArgumentResolver {
 
     private UserRepo userRepo;
-
-    public UserArgumentResolver(UserRepo userRepo) {
-        this.userRepo = userRepo;
-    }
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {

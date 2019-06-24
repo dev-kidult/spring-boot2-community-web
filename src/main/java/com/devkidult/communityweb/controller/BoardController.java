@@ -1,6 +1,7 @@
 package com.devkidult.communityweb.controller;
 
 import com.devkidult.communityweb.service.BoardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -12,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/board")
+@RequiredArgsConstructor
 public class BoardController {
 
-    @Autowired
-    BoardService boardService;
+    private final BoardService boardService;
 
     @GetMapping({"","/"})
     public String board(@RequestParam(value = "idx", defaultValue = "0")Long idx, Model model){
